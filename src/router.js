@@ -5,10 +5,10 @@ const route = (request, response) => {
   const url = request.url;
 
   if( url === "/")
-  {
-
-  }
-  else handlers.error404(response);
+      handlers.handleHome(response);
+  else if( url.indexOf('public') !== -1 )
+       handlers.handlePublic(url, response);
+  else handlers.handleError404(response);
 
 
 
