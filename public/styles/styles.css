@@ -49,6 +49,7 @@ input[id="searchInput"] {
 
 .item-container img {
   padding: 32px;
+  width: 270px;
 }
 
 .outputSectionContainer {
