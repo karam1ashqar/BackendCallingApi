@@ -25,7 +25,6 @@ function myFetch( value ) {
         }
 
         response.json().then((data) => {
-          data = JSON.parse(data)
 
            if( data.length > 4 )
            data = data.slice(0,4);
