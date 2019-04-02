@@ -17,6 +17,7 @@ data = JSON.parse(data)
    newElementImage = document.createElement("img");
    newElementImage.src = data[i]['Poster'];
    newElementImage.alt = "Movie Poster";
+   newElementImage.id = data[i]['imdbID'];
 
    newElementContainer.appendChild(newElementTitle);
    newElementContainer.appendChild(newElementYear);
