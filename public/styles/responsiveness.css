@@ -1,0 +1,15 @@
+@media (max-width:775px) {
+
+.item-container img {
+  width: 170px;
+}
+
+}
+
+@media (max-width:555px) {
+
+.item-container img {
+  width: 100px;
+}
+
+}
