@@ -15,7 +15,8 @@ data = JSON.parse(data)
    newElementYear = document.createElement("p");
    newElementYear.innerText = data[i]['Year'];
    newElementImage = document.createElement("img");
-   newElementImage.src = data[i]['Poster']
+   newElementImage.src = data[i]['Poster'];
+   newElementImage.alt = "Movie Poster";
 
    newElementContainer.appendChild(newElementTitle);
    newElementContainer.appendChild(newElementYear);
