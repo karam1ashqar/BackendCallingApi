@@ -50,6 +50,8 @@ input[id="searchInput"] {
 .item-container img {
   padding: 32px;
   width: 270px;
+  height: auto;
+  max-width: 350px;
 }
 
 .outputSectionContainer {
