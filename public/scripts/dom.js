@@ -1,33 +1,28 @@
-var submitButton = document.getElementById("submitButton");
-var inputFieldValue = document.getElementById("searchInput");
+data = JSON.parse(data)
 
-    submitButton.addEventListener("click", function(event) {
-      event.preventDefault();
+ if( data.length > 4 )
+ data = data.slice(0,4);
 
-      myFetch( inputFieldValue.value );
-
-      inputFieldValue.value = "";
+ var newElementContainer, newElementTitle, newElementYear, newElementImage;
 
 
-});
+ for( var i = 0; i < 4; i++ )
+ {
+   newElementContainer = document.createElement("div");
+   newElementContainer.class = "item-container";
+   newElementTitle = document.createElement("h3");
+   newElementTitle.innerText = data[i]['Title'];
+   newElementYear = document.createElement("p");
+   newElementYear.innerText = data[i]['Year'];
+   newElementImage = document.createElement("img");
+   newElementImage.src = data[i]['Poster']
 
-function myFetch( value ) {
+   newElementContainer.appendChild(newElementTitle);
+   newElementContainer.appendChild(newElementYear);
+   newElementContainer.appendChild(newElementImage);
+   if( i < 2)
+   outputSectionContainer0.appendChild(newElementContainer);
+   else
+   outputSectionContainer1.appendChild(newElementContainer);
 
-    fetch('/search?s=' + inputFieldValue.value)
-     .then(
-      (response) => {
-        if (response.status !== 200) {
-          console.log('Looks like there was a problem. Status Code: ' +
-            response.status);
-          return;
-        }
-
-        response.json().then((data) => {
-          console.log(data)
-        })
-      }
-    )
-    .catch((err) => {
-      console.log('Fetch Error :-S', err);
-    });
-}
+ }
