@@ -1,7 +1,7 @@
 var submitButton = document.getElementById("submitButton");
 var inputFieldValue = document.getElementById("searchInput");
-var outputSectionContainer0 = document.getElementsByClassName("outputSectionContainer")
-var outputSectionContainer1 = document.getElementsByClassName("outputSectionContainer")
+var outputSectionContainer0 = document.getElementsByClassName("outputSectionContainer")[0];
+var outputSectionContainer1 = document.getElementsByClassName("outputSectionContainer")[1];
 
     submitButton.addEventListener("click", function(event) {
       event.preventDefault();
