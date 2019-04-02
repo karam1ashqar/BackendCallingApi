@@ -35,7 +35,7 @@ function myFetch( value ) {
            for( var i = 0; i < 4; i++ )
            {
              newElementContainer = document.createElement("div");
-             newElementContainer.class = "item-container";
+             newElementContainer.classList.add = "item-container";
              newElementTitle = document.createElement("h3");
              newElementTitle.innerText = data[i]['Title'];
              newElementYear = document.createElement("p");
