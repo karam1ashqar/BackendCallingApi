@@ -12,6 +12,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "tape": "^4.10.1"
+  },
+  "devDependencies": {
+    "supertest": "^4.0.2"
   }
 }
