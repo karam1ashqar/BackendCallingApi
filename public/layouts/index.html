@@ -7,18 +7,21 @@
   <link rel="stylesheet" type="text/css" href="./public/styles/responsiveness.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Calling api in the backend</title>
 </head>
 
 <body>
 
-<h1>BackendCallingApi</h1>
-
-<div class="inputDiv">
-<label for="searchInput">Search for your favorite movie</label>
-<input required name="searchInput" id="searchInput" placeholder="Batman example" type="text"/>
-<button id="submitButton">Submit</button>
+<div id="navbar">
+    <div class="inputDiv">
+        <i class="mask fas fa-theater-masks"></i>
+        <label for="searchInput">.</label>
+        <input required name="searchInput" id="searchInput" value="batman" placeholder="Find Movies, TV shows, Celebrities and more..." type="text"/>
+        <button id="submitButton"><span style="font-size: 0;">Search</span><i class="fas fa-search"></i>
+        </button>
+        </div>
 </div>
 
 <section>
