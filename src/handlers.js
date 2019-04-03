@@ -24,6 +24,21 @@ const handleHome = (response) => {
 
 };
 
+const handlesSelected = (response) => {
+  const filePath = path.join(__dirname, "..", "public", "layouts", "selected.html");
+
+  fs.readFile(filePath, (err, file) => {
+    if (err) {
+      response.writeHead(500);
+      response.end('500 server error');
+    }
+    else {
+      response.writeHead(200, exType.html);
+      response.end(file);
+    }
+  });
+};
+
 const handlePublic = (url, response) => {
   let ext;
   let filePath;
@@ -34,6 +49,8 @@ const handlePublic = (url, response) => {
 
   if (url === "/public/layouts/index.html")
     url = "";
+
+
   filePath = path.join(__dirname, "..", url);
   fs.readFile(filePath, (err, file) => {
     if (err) {
@@ -66,6 +83,7 @@ const handleError404 = (response) => {
 
 
 module.exports = {
+  selected: handlesSelected,
   error: handleError404,
   public: handlePublic,
   home: handleHome,
