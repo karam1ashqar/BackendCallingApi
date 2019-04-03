@@ -53,6 +53,12 @@ const searchHandler = (url, res) => {
   query.api(res, queryString);
 };
 
+const itemHandler = (url, res) => {
+  url = decodeURI(url);
+  var queryString = url.split('i=')[1];
+  query.apiId(res, queryString);
+}
+
 const handleError404 = (response) => {
   response.writeHead(404);
   response.end("404 error, page not found");
@@ -63,5 +69,6 @@ module.exports = {
   error: handleError404,
   public: handlePublic,
   home: handleHome,
-  search: searchHandler
+  search: searchHandler,
+  item: itemHandler
 };

@@ -9,6 +9,8 @@ const route = (request, response) => {
     handlers.public(url, response);
   else if (url.indexOf('/search?s=') !== -1)
     handlers.search(url, response);
+  else if (url.indexOf('/search?i=') !== -1)
+    handlers.item(url, response);
   else handlers.error(response);
 };
 
