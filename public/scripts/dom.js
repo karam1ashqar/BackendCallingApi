@@ -33,16 +33,12 @@ function myFetch(value, callback) {
 }
 
 function myAppend(data){
-  while (outputSectionContainer0.firstChild) {
-    outputSectionContainer0.removeChild(outputSectionContainer0.firstChild);
-}
-while (outputSectionContainer1.firstChild) {
-    outputSectionContainer1.removeChild(outputSectionContainer1.firstChild);
-}
+
+  ClearCurrentElements();
 
  var newElementContainer, newElementTitle, newElementYear, newElementImage;
 
- 
+
 
  for( var i = 0; i < 4; i++ ){
   if(data[i].Poster !== 'N/A'){
@@ -55,8 +51,10 @@ while (outputSectionContainer1.firstChild) {
     newElementImage = document.createElement("img");
     newElementImage.src = data[i]['Poster'];
     newElementImage.alt = "Movie Poster";
-    newElementImage.id = data[i]['imdbID'];
- 
+    newElementContainer.id = data[i]['imdbID'];
+    newElementContainer.setAttribute("onclick", 'return ItemClicked(\'' + newElementContainer.id + '\');')
+
+
     newElementContainer.appendChild(newElementTitle);
     newElementContainer.appendChild(newElementYear);
     newElementContainer.appendChild(newElementImage);
@@ -65,7 +63,38 @@ while (outputSectionContainer1.firstChild) {
     else
     outputSectionContainer1.appendChild(newElementContainer);
   }
-
  }
+}
 
+function ItemClicked( id ) {
+
+  window.location.href = "/selected";
+
+  let url = "'/item?i='" + id;
+    fetch(url)
+     .then(
+      (response) => {
+        if (response.status !== 200) {
+          console.log('Looks like there was a problem. Status Code: ' +
+            response.status);
+          return;
+        }
+
+        response.json().then((data) => {
+          callback(data);
+        })
+      }
+    )
+    .catch((err) => {
+      console.log('Fetch Error :-S', err);
+    });
+}
+
+function ClearCurrentElements() {
+  while (outputSectionContainer0.firstChild) {
+    outputSectionContainer0.removeChild(outputSectionContainer0.firstChild);
+}
+while (outputSectionContainer1.firstChild) {
+    outputSectionContainer1.removeChild(outputSectionContainer1.firstChild);
+}
 }
