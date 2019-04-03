@@ -1,12 +1,12 @@
 var submitButton = document.getElementById("submitButton");
-var inputFieldValue = document.getElementById("searchInput");
+var inputField = document.getElementById("searchInput");
 var outputSectionContainer0 = document.getElementsByClassName("outputSectionContainer")[0];
 var outputSectionContainer1 = document.getElementsByClassName("outputSectionContainer")[1];
 
     submitButton.addEventListener("click", function(event) {
       event.preventDefault();
-      myFetch(inputFieldValue.value, myAppend);
-      inputFieldValue.value = "";
+      myFetch(inputField.value, myAppend);
+      inputField.value = "";
 
 
 });
@@ -15,34 +15,46 @@ function myAppend(data){
 
   ClearCurrentElements();
 
- var newElementContainer, newElementTitle, newElementYear, newElementImage;
 
+  if(data.Response === 'False'){
+    var newDiv = document.createElement("DIV");
+    newDiv.id = 'not-found';
+    var p = document.createElement("p");
+    p.textContent = data.Error + ' (Invalid User Input)';
+    newDiv.appendChild(p);
+    document.getElementsByTagName('body')[0].appendChild(newDiv);
+  }else {
+    var newElementContainer, newElementTitle, newElementYear, newElementImage, newElementImageContainer;
 
-
- for( var i = 0; i < 4; i++ ){
-  if(data[i].Poster !== 'N/A'){
-    newElementContainer = document.createElement("DIV");
-    newElementContainer.setAttribute("class", "item-container");
-    newElementTitle = document.createElement("h3");
-    newElementTitle.innerText = data[i]['Title'];
-    newElementYear = document.createElement("p");
-    newElementYear.innerText = data[i]['Year'];
-    newElementImage = document.createElement("img");
-    newElementImage.src = data[i]['Poster'];
-    newElementImage.alt = "Movie Poster";
-    newElementContainer.id = data[i]['imdbID'].trim();
-    newElementContainer.setAttribute("onclick", 'return ItemClicked(\'' + newElementContainer.id + '\');')
-
-
-    newElementContainer.appendChild(newElementTitle);
-    newElementContainer.appendChild(newElementYear);
-    newElementContainer.appendChild(newElementImage);
-    if( i < 2)
-    outputSectionContainer0.appendChild(newElementContainer);
-    else
-    outputSectionContainer1.appendChild(newElementContainer);
+    for( var i = 0; i < 4; i++ ){
+     if(data[i].Poster !== 'N/A'){
+       newElementContainer = document.createElement("DIV");
+       newElementContainer.setAttribute("class", "item-container");
+       newElementTitle = document.createElement("h3");
+       newElementTitle.innerText = data[i]['Title'];
+       newElementYear = document.createElement("p");
+       newElementYear.innerText = data[i]['Year'];
+       newElementImageContainer = document.createElement('DIV');
+       newElementImageContainer.setAttribute('class','image-container');
+       newElementImage = document.createElement("img");
+       newElementImage.src = data[i]['Poster'];
+       newElementImage.alt = "Movie Poster";
+       newElementContainer.id = data[i]['imdbID'].trim();
+       newElementContainer.setAttribute("onclick", 'return ItemClicked(\'' + newElementContainer.id + '\');')
+   
+   
+       newElementContainer.appendChild(newElementTitle);
+       newElementContainer.appendChild(newElementYear);
+       newElementImageContainer.appendChild(newElementImage);
+       newElementContainer.appendChild(newElementImageContainer);
+       
+       if( i < 2)
+       outputSectionContainer0.appendChild(newElementContainer);
+       else
+       outputSectionContainer1.appendChild(newElementContainer);
+     }
+    }
   }
- }
 }
 
 function ItemClicked( id ) {
@@ -58,5 +70,8 @@ function ClearCurrentElements() {
 }
 while (outputSectionContainer1.firstChild) {
     outputSectionContainer1.removeChild(outputSectionContainer1.firstChild);
+}
+while (document.getElementById('not-found')){
+  document.getElementById('not-found').remove();
 }
 }
