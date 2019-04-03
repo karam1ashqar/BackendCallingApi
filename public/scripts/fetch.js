@@ -1,5 +1,5 @@
 function fetchCurrentID(callback){
-  let url = "'/item?i='" + id;
+  let url = "/search?i=" + id;
 
 fetch(url)
  .then(
@@ -12,6 +12,7 @@ fetch(url)
 
     response.json().then((data) => {
       callback(data);
+      console.log(data)
     })
   }
 )
@@ -21,7 +22,7 @@ fetch(url)
 }
 
 function myFetch(value, callback) {
-  let url = "'/search?s='" + value ;
+  let url = "/search?s=" + value ;
     fetch(url)
      .then(
       (response) => {
