@@ -47,7 +47,7 @@ function myAppend(data){
 
 function ItemClicked( id ) {
 
-  let selected = "'/selected?i='" + id;
+  let selected = "selected?i=" + id;
   window.location.href = selected;
 
 }
