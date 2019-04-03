@@ -26,6 +26,13 @@ function myFetch( value ) {
 
         response.json().then((data) => {
 
+          while (outputSectionContainer0.firstChild) {
+              outputSectionContainer0.removeChild(outputSectionContainer0.firstChild);
+          }
+          while (outputSectionContainer1.firstChild) {
+              outputSectionContainer1.removeChild(outputSectionContainer1.firstChild);
+          }
+
            if( data.length > 4 )
            data = data.slice(0,4);
 
