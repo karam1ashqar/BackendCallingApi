@@ -4,7 +4,7 @@ const apiGet = (response, str) => {
     let url = "http://www.omdbapi.com/?s=" + str + "&apikey=" + '4a8cc460';
 
     let options = {
-        url: url,
+        url: url, 
         method: 'GET'
     };
     requestModule(options, (err, res, body) => {
