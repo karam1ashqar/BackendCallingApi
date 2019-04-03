@@ -20,3 +20,15 @@ Movies searcher using api called in node.js. A simple application with an input 
 - [ ] Include Error Handling. For example: if a user attempts to make a request to a non-existent route to your server (404 as mentioned above), provide the user with a custom response. if there is a programmer error on your server (e.g. a handler function does not act as intended), provide the user with a custom response (500 status code).
 - [ ] Include a user input field on your web app and include server-side validation to protect your server from potentially malicious user input.
 - [ ] Display continuous integration and code coverage badges on your project README.
+
+### Tools/technologies used
+* OMDb API - To retrieve the movies posters data.
+* Heroku - For deploying/hosting.
+* Tape - for testing.
+* nyc - for testing.
+* Supertest for testing.
+* nodemon - for hosting localy.
+* Node.js - backend.
+
+### Team members
+Karam, Faris, Obaydah
