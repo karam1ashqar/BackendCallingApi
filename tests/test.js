@@ -59,7 +59,21 @@ test('API request', { timeout:400 }, (t) => {
         .end((err, res) => {
           if( err )
             t.error(err);
-            t.equal(res.statusCode, 200, 'Should return 200'); 
+            t.equal(res.statusCode, 200, 'Should return 200');
+            t.end();
+
+        });
+});
+
+test('responsiveness', { timeout:100 }, (t) => {
+    supertest(router)
+        .get("/public/styles/responsiveness.css")
+        .expect(200)
+        .expect('Content-Type', /css/)
+        .end((err, res) => {
+          if( err )
+            t.error(err);
+            t.equal(res.statusCode, 200, 'Should return 200');
             t.end();
 
         });
