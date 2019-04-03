@@ -50,3 +50,17 @@ test('css file route returns a status code of 200', { timeout:100 }, (t) => {
 
         });
 });
+
+test('API request', { timeout:400 }, (t) => {
+    supertest(router)
+        .get("/search?s=batman")
+        .expect(200)
+        .expect('Content-Type', /json/)
+        .end((err, res) => {
+          if( err )
+            t.error(err);
+            t.equal(res.statusCode, 200, 'Should return 200'); 
+            t.end();
+
+        });
+});
