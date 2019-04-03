@@ -11,27 +11,6 @@ var outputSectionContainer1 = document.getElementsByClassName("outputSectionCont
 
 });
 
-function myFetch(value, callback) {
-  let url = "'/search?s='" + value ;
-    fetch(url)
-     .then(
-      (response) => {
-        if (response.status !== 200) {
-          console.log('Looks like there was a problem. Status Code: ' +
-            response.status);
-          return;
-        }
-
-        response.json().then((data) => {
-          callback(data);
-        })
-      }
-    )
-    .catch((err) => {
-      console.log('Fetch Error :-S', err);
-    });
-}
-
 function myAppend(data){
 
   ClearCurrentElements();
@@ -51,7 +30,7 @@ function myAppend(data){
     newElementImage = document.createElement("img");
     newElementImage.src = data[i]['Poster'];
     newElementImage.alt = "Movie Poster";
-    newElementContainer.id = data[i]['imdbID'];
+    newElementContainer.id = data[i]['imdbID'].trim();
     newElementContainer.setAttribute("onclick", 'return ItemClicked(\'' + newElementContainer.id + '\');')
 
 
@@ -68,26 +47,9 @@ function myAppend(data){
 
 function ItemClicked( id ) {
 
-  window.location.href = "/selected";
+  let selected = "'/selected?i='" + id;
+  window.location.href = selected;
 
-  let url = "'/item?i='" + id;
-    fetch(url)
-     .then(
-      (response) => {
-        if (response.status !== 200) {
-          console.log('Looks like there was a problem. Status Code: ' +
-            response.status);
-          return;
-        }
-
-        response.json().then((data) => {
-          callback(data);
-        })
-      }
-    )
-    .catch((err) => {
-      console.log('Fetch Error :-S', err);
-    });
 }
 
 function ClearCurrentElements() {
