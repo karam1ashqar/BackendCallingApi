@@ -10,12 +10,16 @@ const apiGet = (response, str) => {
     requestModule(options, (err, res, body) => {
         let json = JSON.parse(body);
         let data = json.Search;
-
         if (err) {
           console.log(err);
         } else {
-          response.writeHead(200, { 'Content-Type': 'application/json' });
-          response.end(`${JSON.stringify(data)}`);
+          if(json.Response === 'False'){
+            response.writeHead(200, { 'Content-Type': 'application/json' });
+            response.end(`${JSON.stringify(json)}`);
+          }else {
+            response.writeHead(200, { 'Content-Type': 'application/json' });
+            response.end(`${JSON.stringify(data)}`);
+          }     
         }
       });
 };
