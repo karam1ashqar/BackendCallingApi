@@ -10,6 +10,14 @@ Movies searcher using api called in node.js. A simple application with an input 
 * Homepage, that has search input field, the user should input the movie title he is searching for, then he will get the results from the API request we made in the backend.
 * Selected movie details page, When the user clicks on an item from the output results, he will be redirected to another page that shows more details about the movie he selected.
 
+### How to use locally?
+
+1. git clone this repo.
+2. git install, if something was missing, please install manually to your machine, nyc, tape, tape-spec, supertest, nodemon.
+3. for nyc tests, nyc npm test.
+4. to deploy the server, we made an easy script for you, just type in your terminal 'npm run connect', and it will be deployed with nodemon, if you with to deploy without nodemon, just type in 'run start'.
+5. Have fun!
+
 ### Main Goals
 - [X] Use at least 1 API Make your API calls from the back-end using the Request module (or one you build yourself)
 - [x] Your server should contain a minimum of 2 routes We expect to see lots of tests! Modularise your code and test all your pure functions. 
