@@ -5,7 +5,7 @@ const route = (request, response) => {
 
   if ( url.indexOf('selected') !== -1 || url === "/")
   {
-    if( url.indexOf('url') !== -1 )
+    if( url.indexOf('selected') !== -1 )
     url = url.split('?')[0];
     handlers.home(response, url);
   }
