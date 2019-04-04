@@ -6,10 +6,8 @@ var outputSectionContainer1 = document.getElementsByClassName("outputSectionCont
 
     submitButton.addEventListener("click", function(event) {
       event.preventDefault();
-      myFetch(inputField.value, myAppend);
+      myFetch(inputField.value, myAppend, "s");
       inputField.value = "";
-
-
 });
 
 inputField.addEventListener("keyup", function(event) {
