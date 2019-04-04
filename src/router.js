@@ -1,12 +1,16 @@
 const handlers = require('./handlers');
 
 const route = (request, response) => {
-  const url = request.url;
+  let url = request.url;
 
   if (url === "/")
     handlers.home(response);
+
   else if ( url.indexOf('selected') !== -1)
+  {
+    url = url.split('?')[0]
     handlers.selected(response, url);
+  }
   else if (url.indexOf('public') !== -1)
     handlers.public(url, response);
   else if (url.indexOf('/search?s=') !== -1)
