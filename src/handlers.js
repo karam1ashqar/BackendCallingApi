@@ -77,8 +77,18 @@ const itemHandler = (url, res) => {
 }
 
 const handleError404 = (response) => {
-  response.writeHead(404);
-  response.end("404 error, page not found");
+  const filePath = path.join(__dirname, "..", "public", "layouts", "404.html");
+
+  fs.readFile(filePath, (err, file) => {
+    if (err) {
+      response.writeHead(500);
+      response.end('500 server error');
+    }
+    else {
+      response.writeHead(200, exType.html);
+      response.end(file);
+    }
+  });
 };
 
 
