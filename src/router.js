@@ -3,13 +3,11 @@ const handlers = require('./handlers');
 const route = (request, response) => {
   let url = request.url;
 
-  if (url === "/")
-    handlers.home(response);
-
-  else if ( url.indexOf('selected') !== -1)
+  if ( url.indexOf('selected') !== -1 || url === "/")
   {
+    if( url.indexOf('url') !== -1 )
     url = url.split('?')[0];
-    handlers.selected(response, url);
+    handlers.home(response, url);
   }
   else if (url.indexOf('public') !== -1)
     handlers.public(url, response);
