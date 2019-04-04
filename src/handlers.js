@@ -72,7 +72,7 @@ const handleError404 = (response) => {
       response.end('500 server error');
     }
     else {
-      response.writeHead(200, exType.html);
+      response.writeHead(404, exType.html);
       response.end(file);
     }
   })
