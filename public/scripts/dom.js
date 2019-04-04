@@ -3,12 +3,21 @@ var inputField = document.getElementById("searchInput");
 var outputSectionContainer0 = document.getElementsByClassName("outputSectionContainer")[0];
 var outputSectionContainer1 = document.getElementsByClassName("outputSectionContainer")[1];
 
+
     submitButton.addEventListener("click", function(event) {
       event.preventDefault();
       myFetch(inputField.value, myAppend);
       inputField.value = "";
 
 
+});
+
+inputField.addEventListener("keyup", function(event) {
+  // Number 13 is the "Enter" key on the keyboard
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    submitButton.click();
+  }
 });
 
 function myAppend(data){
@@ -41,13 +50,13 @@ function myAppend(data){
        newElementImage.alt = "Movie Poster";
        newElementContainer.id = data[i]['imdbID'].trim();
        newElementContainer.setAttribute("onclick", 'return ItemClicked(\'' + newElementContainer.id + '\');')
-   
-   
+
+
        newElementContainer.appendChild(newElementTitle);
        newElementContainer.appendChild(newElementYear);
        newElementImageContainer.appendChild(newElementImage);
        newElementContainer.appendChild(newElementImageContainer);
-       
+
        if( i < 2)
        outputSectionContainer0.appendChild(newElementContainer);
        else
