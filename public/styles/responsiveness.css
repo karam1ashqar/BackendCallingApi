@@ -1,0 +1,19 @@
+@media (max-width:775px) {
+
+.item-container img {
+  width: 170px;
+  height: auto;
+  max-width: 250px;
+}
+
+}
+
+@media (max-width:555px) {
+
+.item-container img {
+  width: 100px;
+  height: auto;
+  max-width: 150px;
+}
+
+}

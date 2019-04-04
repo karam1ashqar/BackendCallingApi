@@ -8,8 +8,13 @@ let exType = {
   js: { "Content-Type": "application/javascript" }
 };
 
-const handleHome = (response) => {
-  const filePath = path.join(__dirname, "..", "public", "layouts", "index.html");
+const handleHome = (response, url) => {
+if( url.indexOf("selected") === -1 )
+    url = "index";
+else
+    url = url.split("?")[0];
+    
+  const filePath = path.join(__dirname, "..", "public", "layouts", url + ".html");
 
   fs.readFile(filePath, (err, file) => {
     if (err) {
@@ -29,11 +34,12 @@ const handlePublic = (url, response) => {
   let filePath;
   if (url.indexOf(".") !== -1)
     ext = url.split('.')[1];
-  else
-    handleError404(response);
+
 
   if (url === "/public/layouts/index.html")
     url = "";
+
+
   filePath = path.join(__dirname, "..", url);
   fs.readFile(filePath, (err, file) => {
     if (err) {
@@ -53,9 +59,25 @@ const searchHandler = (url, res) => {
   query.api(res, queryString);
 };
 
+const itemHandler = (url, res) => {
+  url = decodeURI(url);
+  var queryString = url.split('i=')[1];
+  query.apiId(res, queryString);
+}
+
 const handleError404 = (response) => {
-  response.writeHead(404);
-  response.end("404 error, page not found");
+  const filePath = path.join(__dirname, "..", "public", "layouts", "404.html");
+
+  fs.readFile(filePath, (err, file) => {
+    if (err) {
+      response.writeHead(500);
+      response.end('500 server error');
+    }
+    else {
+      response.writeHead(404, exType.html);
+      response.end(file);
+    }
+  })
 };
 
 
@@ -63,5 +85,6 @@ module.exports = {
   error: handleError404,
   public: handlePublic,
   home: handleHome,
-  search: searchHandler
+  search: searchHandler,
+  item: itemHandler
 };
