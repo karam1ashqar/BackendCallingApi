@@ -2,7 +2,8 @@
 var id = window.location.href.split('=')[1];
 
 if( id != null )
-fetchCurrentID(retreiveData);
+myFetch(null, myAppend, "i");
+
 
 function retreiveData( data ) {
 
