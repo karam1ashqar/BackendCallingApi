@@ -6,7 +6,7 @@ const route = (request, response) => {
   if (url === "/")
     handlers.home(response);
   else if ( url.indexOf('selected') !== -1)
-    handlers.selected(response);
+    handlers.selected(response, url);
   else if (url.indexOf('public') !== -1)
     handlers.public(url, response);
   else if (url.indexOf('/search?s=') !== -1)
