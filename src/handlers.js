@@ -75,7 +75,7 @@ const handleError404 = (response) => {
       response.writeHead(200, exType.html);
       response.end(file);
     }
-  });
+  })
 };
 
 
