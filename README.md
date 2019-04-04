@@ -23,7 +23,7 @@ Movies searcher using api called in node.js. A simple application with an input 
 - [ ] Use CodeCov or a similar tool to report and track test coverage. 
 - [x] Include Error Handling. For example: if a user attempts to make a request to a non-existent route to your server (404 as mentioned above), provide the user with a custom response. if there is a programmer error on your server (e.g. a handler function does not act as intended), provide the user with a custom response (500 status code).
 - [x] Include a user input field on your web app and include server-side validation to protect your server from potentially malicious user input.
-- [ ] Display continuous integration and code coverage badges on your project README.
+- [x] Display continuous integration and code coverage badges on your project README.
 
 ### Code Coverage 
 
