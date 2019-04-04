@@ -1,7 +1,7 @@
 const handlers = require('./handlers');
 
 const route = (request, response) => {
-  const url = request.url;
+  let url = request.url;
 
   if (url === "/")
     handlers.home(response);
