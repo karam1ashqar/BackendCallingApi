@@ -24,8 +24,9 @@ const handleHome = (response) => {
 
 };
 
-const handlesSelected = (response) => {
-  const filePath = path.join(__dirname, "..", "public", "layouts", "selected.html");
+const handlesSelected = (response, url) => {
+  url = url.split("/")[1]
+  const filePath = path.join(__dirname, "..", "public", "layouts", url+".html");
 
   fs.readFile(filePath, (err, file) => {
     if (err) {
