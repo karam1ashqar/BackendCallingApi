@@ -39,6 +39,12 @@ export API_KEY=4a8cc460
 - [x] Include a user input field on your web app and include server-side validation to protect your server from potentially malicious user input.
 - [x] Display continuous integration and code coverage badges on your project README.
 
+### Stretch Goals
+
+- [x] Research and use Nock to mock the response of external API calls in your tests, and write tests for server routes that - [ ] make API calls.
+
+Create a route and functionality for a POST request.
+
 ### Code Coverage 
 
 ![Backend Api Call Code Coverage](https://raw.githubusercontent.com/facn5/BackendCallingApi/master/public/assets/nycCove.png)
@@ -52,9 +58,12 @@ export API_KEY=4a8cc460
 * Heroku - For deploying/hosting.
 * Tape - for testing.
 * nyc - for testing.
+* nock - for testing APIs.
 * Supertest for testing.
-* nodemon - for hosting localy.
+* nodemon - for hosting locally.
 * Node.js - backend.
 
 ### Team members
-Karam, Faris, Obaydah
+* Karam: [Github](https://github.com/karam1ashqar)
+* Faris: [Github](https://github.com/faris114)
+* Obaydah: [Github](https://github.com/obayda)
