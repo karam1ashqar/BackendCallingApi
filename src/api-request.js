@@ -1,7 +1,8 @@
 const requestModule = require('request');
+const env = require('env2')('src/.env');
 
 const apiGet = (response, str) => {
-    let url = "http://www.omdbapi.com/?s=" + str + "&apikey=" + '4a8cc460';
+    let url = "http://www.omdbapi.com/?s=" + str + "&apikey=" + process.env.API_KEY;
 
     let options = {
         url: url, 
@@ -49,5 +50,3 @@ module.exports = {
     api: apiGet,
     apiId: apiGetId
 };
-
-//4a8cc460
