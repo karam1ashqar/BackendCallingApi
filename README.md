@@ -31,7 +31,7 @@ Movies searcher using api called in node.js. A simple application with an input 
 
 ### Software Design Structure
 
-![Backend Api Call Software Design Structure] (https://raw.githubusercontent.com/facn5/BackendCallingApi/master/public/assets/mockup.png)
+![Backend Api Call Software Design Structure](https://raw.githubusercontent.com/facn5/BackendCallingApi/master/public/assets/mockup.png)
 
 ### Tools/technologies used
 * OMDb API - To retrieve the movies posters data.
