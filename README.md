@@ -41,9 +41,8 @@ export API_KEY=4a8cc460
 
 ### Stretch Goals
 
-- [x] Research and use Nock to mock the response of external API calls in your tests, and write tests for server routes that - [ ] make API calls.
-
-Create a route and functionality for a POST request.
+- [x] Research and use Nock to mock the response of external API calls in your tests, and write tests for server routes that  make API calls.
+- [ ] Create a route and functionality for a POST request.
 
 ### Code Coverage 
 
@@ -59,6 +58,7 @@ Create a route and functionality for a POST request.
 * Tape - for testing.
 * nyc - for testing.
 * nock - for testing APIs.
+* request module for retrieving data from external APIs
 * Supertest for testing.
 * nodemon - for hosting locally.
 * Node.js - backend.
