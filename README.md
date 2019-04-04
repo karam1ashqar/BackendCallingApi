@@ -16,7 +16,13 @@ Movies searcher using api called in node.js. A simple application with an input 
 2. git install, if something was missing, please install manually to your machine, nyc, tape, tape-spec, supertest, nodemon.
 3. for nyc tests, nyc npm test.
 4. to deploy the server, we made an easy script for you, just type in your terminal 'npm run connect', and it will be deployed with nodemon, if you with to deploy without nodemon, just type in 'run start'.
-5. Have fun!
+5. to get the API key working, you need to create a file in the root directory of this repo named .env, and type these lines in it.
+
+```
+export API_KEY=4a8cc460
+```
+
+6. Have fun!
 
 ### Main Goals
 - [X] Use at least 1 API Make your API calls from the back-end using the Request module (or one you build yourself)
