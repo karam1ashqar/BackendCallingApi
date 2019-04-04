@@ -8,8 +8,11 @@ let exType = {
   js: { "Content-Type": "application/javascript" }
 };
 
-const handleHome = (response) => {
-  const filePath = path.join(__dirname, "..", "public", "layouts", "index.html");
+const handleHome = (response, url) => {
+if( url.indexOf("selected") === -1 )
+url = "index";
+
+  const filePath = path.join(__dirname, "..", "public", "layouts", url + ".html");
 
   fs.readFile(filePath, (err, file) => {
     if (err) {
@@ -22,22 +25,6 @@ const handleHome = (response) => {
     }
   });
 
-};
-
-const handlesSelected = (response, url) => {
-  url = url.split("/")[1]
-  const filePath = path.join(__dirname, "..", "public", "layouts", url+".html");
-
-  fs.readFile(filePath, (err, file) => {
-    if (err) {
-      response.writeHead(500);
-      response.end('500 server error');
-    }
-    else {
-      response.writeHead(200, exType.html);
-      response.end(file);
-    }
-  });
 };
 
 const handlePublic = (url, response) => {
@@ -93,7 +80,6 @@ const handleError404 = (response) => {
 
 
 module.exports = {
-  selected: handlesSelected,
   error: handleError404,
   public: handlePublic,
   home: handleHome,
