@@ -66,7 +66,7 @@ test('API request', (t) => {
         .end((err, res) => {
             t.error(err);
             t.equal(res.body[0].Title, "Batman Begins", `Title should equal to ${res.body[0].Title}`);
-            nock.cleanAll()
+            nock.cleanAll();
             t.end();
 
         });
