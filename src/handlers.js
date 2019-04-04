@@ -10,8 +10,10 @@ let exType = {
 
 const handleHome = (response, url) => {
 if( url.indexOf("selected") === -1 )
-url = "index";
-
+    url = "index";
+else
+    url = url.split("?")[0];
+    
   const filePath = path.join(__dirname, "..", "public", "layouts", url + ".html");
 
   fs.readFile(filePath, (err, file) => {
