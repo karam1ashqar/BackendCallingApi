@@ -5,8 +5,7 @@ const router = require('../src/router');
 test('Server is up', (t) => {
   let num = 2;
   t.equal(num, 2, 'Should return 2 - meaning server started');
-  t.end(); // Remember to call t.end() after every test call, to ensure tests run in order. You can also investigate t.plan() in the docs
-});
+  t.end();
 
 test('Home route returns a status code of 200', { timeout:100 }, (t) => {
     supertest(router)
@@ -16,8 +15,7 @@ test('Home route returns a status code of 200', { timeout:100 }, (t) => {
         .end((err, res) => {
             t.error(err);
 
-      t.equal(res.statusCode, 200, 'Should return 200'); // note we have used .expect(200) above so this assertion is not neccesary. This is to show you how to check the statusCode in the res.
-      t.end();
+      t.equal(res.statusCode, 200, 'Should return 200');
 
     });
 });
@@ -28,8 +26,7 @@ test('404 not found route returns a status code of 404', { timeout:100 }, (t) =>
         .expect(404)
         .end((err, res) => {
             t.error(err);
-            t.equal(res.statusCode, 404, 'Should return 404'); // note we have used .expect(200) above so this assertion is not neccesary. This is to show you how to check the statusCode in the res.
-            t.end();
+            t.equal(res.statusCode, 404, 'Should return 404');
 
         });
 });
@@ -42,7 +39,7 @@ test('css file route returns a status code of 200', { timeout:100 }, (t) => {
         .end((err, res) => {
             t.error(err);
 
-            t.equal(res.statusCode, 200, 'Should return 200'); // note we have used .expect(200) above so this assertion is not neccesary. This is to show you how to check the statusCode in the res.
+            t.equal(res.statusCode, 200, 'Should return 200');
             t.end();
 
         });
