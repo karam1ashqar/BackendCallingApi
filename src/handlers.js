@@ -45,8 +45,7 @@ const handlePublic = (url, response) => {
   let filePath;
   if (url.indexOf(".") !== -1)
     ext = url.split('.')[1];
-  else
-    handleError404(response);
+
 
   if (url === "/public/layouts/index.html")
     url = "";
